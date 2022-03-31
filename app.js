@@ -1,9 +1,12 @@
-// Importación de paquetes
+// Importaciones
 import express from 'express'
 import { engine } from 'express-handlebars'
+import 'dotenv/config'
+import productosRoutes from './routes/usuariosRouter.js'
+import connect from './dao/dbConfig.js'
 
-// importación de rutas
-import productosRoutes from './routes/productosRoutes.js'
+// Conecto a MongoDB Atlas
+connect()
 
 // Tomo valor de puerto del enviroment si existiera o por default en 3000
 const PORT = process.env.PORT || 3000
