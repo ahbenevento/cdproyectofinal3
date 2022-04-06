@@ -1,6 +1,6 @@
 // Importaciones 
 import { Router } from "express";
-import { getUsuarioController, postUsuarioController } from '../controller/usuariosController.js'
+import { getUsuarioController, postUsuarioController } from '../controllers/usuariosController.js'
 
 const routerUsuario = new Router()
 

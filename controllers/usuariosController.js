@@ -1,5 +1,5 @@
 // Importaciones
-import { obtenerTodosLosDatos, crearUsuario } from '../service/usuariosService.js'
+import { obtenerTodosLosDatos, crearUsuario } from '../services/usuariosService.js'
 
 async function getUsuarioController(req, res) {
     const usuarios = await obtenerTodosLosDatos()

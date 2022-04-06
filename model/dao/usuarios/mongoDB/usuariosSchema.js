@@ -1,7 +1,7 @@
 // Importaciones
 import mongoose from "mongoose"
 
-const usuariosCollection = 'usuarios'
+const usuariosCollection = 'usuario'
 
 const UsuarioSchema = new mongoose.Schema({
         nombre: {type: String, required: true, max: 100},

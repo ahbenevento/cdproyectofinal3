@@ -1,5 +1,5 @@
 // Importaciones
-import { guardar, recuperarTodos } from '../dao/usuarios/usuariosDao.js'
+import { guardar, recuperarTodos } from '../model/dao/usuarios/mongoDB/usuariosDaoMongoDB.js'
 
 async function obtenerTodosLosDatos() {
     return await recuperarTodos()

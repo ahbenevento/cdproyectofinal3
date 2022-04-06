@@ -1,32 +1,36 @@
-// Importaciones
 import express from 'express'
 import { engine } from 'express-handlebars'
-import 'dotenv/config'
-import productosRoutes from './routes/usuariosRouter.js'
-import connect from './dao/dbConfig.js'
+import usuariosRouter from './routes/usuariosRouter.js'
+import config from './config.js'
 
-// Conecto a MongoDB Atlas
-connect()
+/**
+ * Puerto para el servidor express(); si no está declarado en el archivo .env tomo el valor 8080 por default.
+ */
+const PORT = config.PORT || 8080
 
-// Tomo valor de puerto del enviroment si existiera o por default en 3000
-const PORT = process.env.PORT || 3000
-
-// Declaro el servidor
 const app = express()
 
-// Establecemos la configuración de express-handlebars
+/**
+ * Establecemos la configuración de express-handlebars.
+ */ 
 app.engine('hbs', engine({
     defaultLayout: 'main',
     extname: 'hbs'
 }))
 app.set('view engine', 'hbs')
 
-// Middlewares para manejar envíos de JSON
+/**
+ * Middlewares para manejar envíos de JSON.
+ */ 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-// Middlewares para manejo de rutas
-app.use('/', productosRoutes)
+/**
+ * Middlewares para manejo de rutas.
+ */ 
+app.use('/', usuariosRouter)
 
-// Servidor escuchando en el PORT declarado
+/**
+ * Server iniciado.
+ */
 app.listen(PORT, () => console.log(`Server escuchando en el puerto ${PORT} . . .`))
