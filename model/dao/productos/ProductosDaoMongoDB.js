@@ -1,9 +1,9 @@
-import ContenedorMongoDB from "../../containers/ContenedorMongoDB.js"
+import ContenedorMongoDB from "../../containers/ContenedorProductoMongoDB.js"
 
 class ProductosDaoMongoDB extends ContenedorMongoDB {
 
     constructor() {
-        super('products', {
+        super('producto', {
             title: { type: String, required: true },
             description: { type: String, required: true },
             price: { type: Number, required: true },

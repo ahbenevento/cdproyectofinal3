@@ -1,13 +1,16 @@
-// Importaciones
-import { guardar, recuperarTodos } from '../model/dao/usuarios/mongoDB/usuariosDaoMongoDB.js'
+import { usuariosDao } from '../model/index.js'
 
 async function obtenerTodosLosDatos() {
-    return await recuperarTodos()
+    return await usuariosDao.obtenerTodos()
 }
 
 async function crearUsuario(usuario) {
-    await guardar(usuario)
+    await usuariosDao.guardar(usuario)
     return usuario
 }
-
 export { obtenerTodosLosDatos, crearUsuario }
+
+
+
+
+

@@ -17,7 +17,7 @@ const config = {
         }
     },
     mongoDBAtlas: {
-        connectionString: process.env.MONGODB_ATLAS_URI,
+        uri: process.env.MONGODB_ATLAS_URI,
         options: {
           useNewUrlParser: true,
           useUnifiedTopology: true, 

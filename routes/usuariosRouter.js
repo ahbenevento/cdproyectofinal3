@@ -1,4 +1,3 @@
-// Importaciones 
 import { Router } from "express";
 import { getUsuarioController, postUsuarioController } from '../controllers/usuariosController.js'
 

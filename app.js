@@ -1,6 +1,7 @@
 import express from 'express'
 import { engine } from 'express-handlebars'
 import usuariosRouter from './routes/usuariosRouter.js'
+import productosRouter from './routes/productosRouter.js'
 import config from './config.js'
 
 /**
@@ -29,6 +30,7 @@ app.use(express.json())
  * Middlewares para manejo de rutas.
  */ 
 app.use('/', usuariosRouter)
+app.use('/', productosRouter)
 
 /**
  * Server iniciado.

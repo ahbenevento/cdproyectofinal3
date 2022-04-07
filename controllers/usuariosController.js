@@ -1,4 +1,3 @@
-// Importaciones
 import { obtenerTodosLosDatos, crearUsuario } from '../services/usuariosService.js'
 
 async function getUsuarioController(req, res) {
