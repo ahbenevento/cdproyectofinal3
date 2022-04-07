@@ -3,7 +3,6 @@ import { obtenerTodosLosDatos, crearProducto } from '../services/productosServic
 async function getProductoController(req, res) {
     const producto = await obtenerTodosLosDatos()
     res.json(producto)
-    // res.json({hola: 'chau'})
 }
 
 async function postProductoController(req, res) {

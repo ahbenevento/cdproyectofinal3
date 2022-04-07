@@ -13,13 +13,11 @@ switch (config.PERS) {
     case 'MONGODB_ATLAS':
         const { default: ProductosDaoMongoDB } = await import('./dao/productos/ProductosDaoMongoDB.js')
         const { default: UsuariosDaoMongoDB } = await import('./dao/usuarios/UsuariosDaoMongoDB.js')
-        productosDao = new ProductosDaoMongoDB()
-        usuariosDao = new UsuariosDaoMongoDB()
-
+        
         /**
          * Conexión a la base de datos MongoDB Atlas.
          */
-        try {
+         try {
             await mongoose.connect(config.mongoDBAtlas.uri, config.mongoDBAtlas.options)
             console.log(`Conexión a la base de datos MongoDB Atlas exitosa!`)
         } catch (error) {
@@ -27,6 +25,8 @@ switch (config.PERS) {
             throw new Error(error)
         }
 
+        productosDao = new ProductosDaoMongoDB()
+        usuariosDao = new UsuariosDaoMongoDB()
         break
 
     case 'MARIABD':

@@ -8,21 +8,22 @@ class ContenedorMongoDB {
 
     async guardar(usuario) {
         try {
-            const usuarioSaveModel = new model.usuarios(usuario)
+            const usuarioSaveModel = new this.coleccion(usuario)
             const nuevoUsuario = await usuarioSaveModel.save()
             return nuevoUsuario
         } catch (error) {
-            throw new Error(`Error al guardar usuario ${error}`)
+            console.log(`Error al guardar el usuario.`)
+            throw new Error(error)
         }
     }
 
-    async recuperarTodos() {
+    async obtenerTodos() {
         try {
-            const usuarios = await model.usuarios.find({})
-            console.log(usuarios)
+            const usuarios = await this.coleccion.find({})
             return usuarios   
         } catch (error) {
-            throw new Error(`Error al recuperar los usuarios ${error}`)
+            console.log(`Error al obtener todos los usuarios.`)
+            throw new Error(error)
         }
     }
 
