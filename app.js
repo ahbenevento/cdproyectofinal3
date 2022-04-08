@@ -30,9 +30,9 @@ app.use(express.json())
 /**
  * Middlewares para manejo de rutas.
  */ 
-app.use('/', usuariosRouter)
-app.use('/', productosRouter)
-app.use('/', router)
+app.use('/api', usuariosRouter)
+app.use('/api', productosRouter)
+app.use('/api', router)
 
 /**
  * Server iniciado.
