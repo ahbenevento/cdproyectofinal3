@@ -2,6 +2,7 @@ import express from 'express'
 import { engine } from 'express-handlebars'
 import usuariosRouter from './routes/usuariosRouter.js'
 import productosRouter from './routes/productosRouter.js'
+import router from './routes/router.js'
 import config from './config.js'
 
 /**
@@ -31,6 +32,7 @@ app.use(express.json())
  */ 
 app.use('/', usuariosRouter)
 app.use('/', productosRouter)
+app.use('/', router)
 
 /**
  * Server iniciado.

@@ -2,7 +2,6 @@ import config from '../config.js'
 import mongoose from 'mongoose'
 
 let productosDao
-let carritosDao
 let usuariosDao
 
 /**
@@ -11,9 +10,6 @@ let usuariosDao
 switch (config.PERS) {
 
     case 'MONGODB_ATLAS':
-        const { default: ProductosDaoMongoDB } = await import('./dao/productos/ProductosDaoMongoDB.js')
-        const { default: UsuariosDaoMongoDB } = await import('./dao/usuarios/UsuariosDaoMongoDB.js')
-        
         /**
          * Conexión a la base de datos MongoDB Atlas.
          */
@@ -25,15 +21,21 @@ switch (config.PERS) {
             throw new Error(error)
         }
 
+        const { default: ProductosDaoMongoDB } = await import('./dao/productos/ProductosDaoMongoDB.js')
+        const { default: UsuariosDaoMongoDB } = await import('./dao/usuarios/UsuariosDaoMongoDB.js')
+        
         productosDao = new ProductosDaoMongoDB()
         usuariosDao = new UsuariosDaoMongoDB()
         break
 
-    case 'MARIABD':
+    case 'MARIADB':
         const { default: ProductosDaoMariaDB } = await import('./dao/productos/ProductosDaoMariaDB.js')
+        const { default: UsuariosDaoMariaDB } = await import('./dao/usuarios/UsuariosDaoMariaDB.js')
+
         productosDao = new ProductosDaoMariaDB()
+        usuariosDao = new UsuariosDaoMariaDB()
         break
 
 }
 
-export { productosDao, carritosDao, usuariosDao }
+export { productosDao, usuariosDao }

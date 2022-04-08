@@ -6,15 +6,12 @@ import 'dotenv/config'
 const config = {
     PORT: process.env.PORT,
     PERS: process.env.PERS,
-    mariaDb: {
-        client: "mysql",
-        connection: {
-            host: "127.0.0.1",
-            user: process.env.MARIADB_USER,
-            password: process.env.MARIADB_PASS,
-            database: process.env.MARIADB_DB,
-            charset: "utf8mb4"
-        }
+    mariaDB: {
+        client: "mariadb",
+        host: "127.0.0.1",
+        user: process.env.MARIADB_USER,
+        password: process.env.MARIADB_PASS,
+        database: process.env.MARIADB_DB
     },
     mongoDBAtlas: {
         uri: process.env.MONGODB_ATLAS_URI,

@@ -6,25 +6,24 @@ class ContenedorMongoDB {
         this.coleccion = mongoose.model(nombreColeccion, esquema)
     }
 
-    async guardar(producto) {
+    async guardar(usuario) {
         try {
-            const productoSaveModel = new this.coleccion(producto)
-            return await productoSaveModel.save()
+            const usuarioSaveModel = new this.coleccion(usuario)
+            return await usuarioSaveModel.save()
         } catch (error) {
-            console.log(`Error al guardar el producto.`)
+            console.log(`Error al guardar el usuario.`)
             throw new Error(error)
         }
     }
-    
+
     async obtenerTodos() {
         try {
-            const productos = await this.coleccion.find({})
-            return productos
+            return await this.coleccion.find({})
         } catch (error) {
-            console.log(`Error al obtener todos los productos.`)
+            console.log(`Error al obtener todos los usuarios.`)
             throw new Error(error)
         }
-    } 
+    }
 
 }
 
