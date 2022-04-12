@@ -1,31 +1,32 @@
 import { Sequelize, DataTypes } from 'sequelize'
 import config from '../../../config.js'
+import mimariadb from '../../mimariadb.js'
 
 /**
  * Conexión a la base de datos MariaDB
- */     
-const sequelize = new Sequelize(config.mariaDB.database, config.mariaDB.user, config.mariaDB.password, {
-        host: config.mariaDB.host,
-        dialect: config.mariaDB.client,
-        define: {timestamps: false}
-})
-try {
-    await sequelize.authenticate();
-    console.log(`Conexión a la base de datos MariaDB exitosa!`)
-    } catch (error) {
-    console.error(`Error al conectarse a la base de datos.`, error)
-}
+ */
+// const sequelize = new Sequelize(config.mariaDB.database, config.mariaDB.user, config.mariaDB.password, {
+//         host: config.mariaDB.host,
+//         dialect: config.mariaDB.client,
+//         define: {timestamps: false}
+// })
+// try {
+//     await sequelize.authenticate();
+//     console.log(`Conexión a la base de datos MariaDB exitosa!`)
+//     } catch (error) {
+//     console.error(`Error al conectarse a la base de datos.`, error)
+// }
 
 /**
  * Modelo para la tabla productos
  */
-const producto= sequelize.define('producto', {
+const producto= mimariadb.getHandle().define('producto', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    nombre: {type: DataTypes.STRING, allowNull: false},  
-    descripcion: {type: DataTypes.STRING, allowNull: false},  
-    precio: {type: DataTypes.FLOAT, allowNull: false},  
+    nombre: {type: DataTypes.STRING, allowNull: false},
+    descripcion: {type: DataTypes.STRING, allowNull: false},
+    precio: {type: DataTypes.FLOAT, allowNull: false},
     stock: {type: DataTypes.INTEGER, allowNull: false},
-    thumbnail: {type: DataTypes.STRING, allowNull: true} 
+    thumbnail: {type: DataTypes.STRING, allowNull: true}
 })
 
 class ContenedorMariaDB {

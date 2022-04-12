@@ -8,7 +8,7 @@ const config = {
     PERS: process.env.PERS,
     mariaDB: {
         client: "mariadb",
-        host: "127.0.0.1",
+        host: "10.10.10.10",
         user: process.env.MARIADB_USER,
         password: process.env.MARIADB_PASS,
         database: process.env.MARIADB_DB
@@ -17,7 +17,7 @@ const config = {
         uri: process.env.MONGODB_ATLAS_URI,
         options: {
           useNewUrlParser: true,
-          useUnifiedTopology: true, 
+          useUnifiedTopology: true,
           serverSelectionTimeoutMS: 5000
         }
     }
